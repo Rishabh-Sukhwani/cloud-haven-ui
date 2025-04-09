@@ -1,5 +1,6 @@
 
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom"; // <-- import useLocation
 import { cn } from "@/lib/utils";
 import {
   Activity,
@@ -8,6 +9,7 @@ import {
   Database,
   Home,
   LayoutDashboard,
+  Rocket,
   Settings,
 } from "lucide-react";
 
@@ -29,6 +31,9 @@ export function Sidebar({
   toggleCollapse,
   ...props
 }: SidebarProps) {
+
+  const location = useLocation();
+
   return (
     <div
       className={cn(
@@ -52,32 +57,43 @@ export function Sidebar({
         <SidebarItem
           icon={<LayoutDashboard size={20} />}
           label="Dashboard"
-          active
           path="/"
+          active={location.pathname === "/"}
+          collapsed={collapsed}
+        />
+        <SidebarItem
+          icon={<Rocket size={20} />}
+          label="Deployments"
+          path="/deployments"
+          active={location.pathname === "/deployments"}
           collapsed={collapsed}
         />
         <SidebarItem
           icon={<Code size={20} />}
           label="Projects"
           path="/projects"
+          active={location.pathname === "/projects"}
           collapsed={collapsed}
         />
         <SidebarItem
           icon={<Database size={20} />}
           label="Databases"
           path="/databases"
+          active={location.pathname === "/databases"}
           collapsed={collapsed}
         />
         <SidebarItem
           icon={<Activity size={20} />}
           label="Analytics"
           path="/analytics"
+          active={location.pathname === "/analytics"}
           collapsed={collapsed}
         />
         <SidebarItem
           icon={<Settings size={20} />}
           label="Settings"
           path="/settings"
+          active={location.pathname === "/settings"}
           collapsed={collapsed}
         />
       </div>

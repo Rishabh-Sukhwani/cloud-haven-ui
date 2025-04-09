@@ -82,7 +82,7 @@ const projects = [
 
 const Index = () => {
   return (
-    <DashboardLayout>
+    <div>
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
@@ -149,7 +149,7 @@ const Index = () => {
           <DeploymentActivity activities={deploymentActivities} />
         </div>
       </div>
-    </DashboardLayout>
+    </div>
   );
 };
 
